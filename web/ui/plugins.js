@@ -160,7 +160,7 @@ function render() {
     const title = document.createElement('span');
     title.className = 'plugin-name';
     const name = document.createElement('b');
-    name.textContent = p.name;
+    name.textContent = t(p.name);
     title.append(name);
     if (label?.version) {
       const v = document.createElement('span');
@@ -185,7 +185,7 @@ function render() {
     else {
       const none = document.createElement('span');
       none.className = 'plugin-none';
-      none.textContent = 'No build';
+      none.textContent = t('No build');
       head.append(none);
     }
     if (p.guide) {
@@ -212,7 +212,7 @@ needs.textContent = file === null ? t('No build for {name}', { name: t(COMPUTERS
     if (label?.engine) {
       const ver = document.createElement('div');
       ver.className = 'plugin-ver';
-      ver.textContent = label.engine;
+      ver.textContent = label.engine.replace(/^engine\b/, t('engine'));
       body.append(ver);
     }
     if (file !== null) {
